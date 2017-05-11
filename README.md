@@ -1,4 +1,4 @@
-# ChooseCollectionView
+# UICollectionView 实现拖拽排序
 模块的添加或者删除（cell的互换）
 
 1.长安拖动互换
