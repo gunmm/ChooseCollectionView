@@ -44,11 +44,6 @@ static NSString *foot = @"footer";
     
     //这个值是设置如果在拖拽中就不让点击cell=
     BOOL _theLongG;
-
-
-
-    
-    
 }
 
 @end
