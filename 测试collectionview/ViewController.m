@@ -190,6 +190,7 @@ static NSString *foot = @"footer";
     _dragingCell.frame = [_collectionView cellForItemAtIndexPath:_dragingIndexPath].frame;
     //调整 假的cell 的显示  及label的text值和对应cell相同  并且放大
     AddCollectionViewCell *midCell = (AddCollectionViewCell *)[_collectionView cellForItemAtIndexPath:_dragingIndexPath];
+    midCell.hidden = YES;
     _dragingCell.nameL.text = midCell.nameL.text;
     _dragingCell.hidden = false;
     [UIView animateWithDuration:0.3 animations:^{
@@ -198,7 +199,7 @@ static NSString *foot = @"footer";
     
     [UIView animateWithDuration:0.1 delay:0 options:0  animations:^
      {
-        _dragingCell.transform=CGAffineTransformMakeRotation(-0.05);
+        _dragingCell.nameL.transform=CGAffineTransformMakeRotation(-0.05);
          
      } completion:^(BOOL finished)
      {
@@ -217,7 +218,7 @@ static NSString *foot = @"footer";
         [UIView animateWithDuration:0.1 delay:0 options:0  animations:^
          {
              //顺时针旋转0.05 = 0.05 * 180 = 9°
-             cell.transform=CGAffineTransformMakeRotation(-0.05);
+             ((AddCollectionViewCell *)cell).nameL .transform=CGAffineTransformMakeRotation(-0.05);
          } completion:^(BOOL finished)
          {
              //  重复  反向动画时接收交互
@@ -362,6 +363,7 @@ static NSString *foot = @"footer";
         _dragingCell.frame = endFrame;
     }completion:^(BOOL finished) {
         _dragingCell.hidden = true;
+        ((AddCollectionViewCell *)[_collectionView cellForItemAtIndexPath:_dragingIndexPath]).hidden = NO;
         [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionAllowUserInteraction|UIViewAnimationOptionBeginFromCurrentState animations:^
          {
             _dragingCell.nameL.transform=CGAffineTransformIdentity;
