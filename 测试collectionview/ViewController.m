@@ -66,7 +66,6 @@ static NSString *foot = @"footer";
     //创建_collectionView
     [self createUICollectionView];
     
-    
     //初始化测试的view
     textV = [[UITextView alloc]initWithFrame:CGRectMake(10, 400, kDeviceWidth-20, kDeviceHeight-400)];
     [self.view addSubview:textV];
